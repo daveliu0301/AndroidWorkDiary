@@ -1,4 +1,5 @@
 2016.04.15
-1.通过包名打开其他应用
-Intent launchIntent = context.getPackageManager().getLaunchIntentForPackage(packageName);
+1.open other app by package name.
+	Intent launchIntent = context.getPackageManager().getLaunchIntentForPackage(packageName);
+
 
