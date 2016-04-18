@@ -2,4 +2,27 @@
 1.open other app by package name.
 	Intent launchIntent = context.getPackageManager().getLaunchIntentForPackage(packageName);
 
+2.NDK
+    1)declare a native method.
+
+    2)build -> make project for create .class file.
+
+    3)create .h file:Use AS's terminal move in project src\main directory, input command:
+    javah -d jni -classpath <dirname;dirname;...> className
+    dirname always have android.jar, v4 and v7 jar file, and ...\app\build\intermediates\classes\debug directory(the .class file which declared native method in). The className with package name.
+    this step will create a "jni" directory and a .h file in it.
+
+    4)create .c file in jni directory, include the .h file which we created in step 3. And then create the C method.
+
+    5)if the NDK you used is not newest, set"android.useDeprecatedNdk=true"in gradle.properties file.
+
+    6)in Module's build.gradle file, find defaultConfig element, input:
+        ndk{
+            moduleName "JniUtilitys"  //the .so file name
+        }
+
+    7)load lib in java code:
+    static{
+      System.loadLibrary("JniUtilitys");
+     }
 
