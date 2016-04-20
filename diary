@@ -26,3 +26,20 @@
       System.loadLibrary("JniUtilitys");
      }
 
+3.change password visibility
+void TextView.setTransformationMethod(TransformationMethod method)
+PasswordTransformationMethod
+HideReturnsTransformationMethod
+
+4.get main thread on Service
+new Handler(getMainLooper()).post(new Runnable(){
+	public void run(){
+		//do sth. like show Toast.
+	}
+})
+
+
+
+
+
+
